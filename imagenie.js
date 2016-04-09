@@ -100,12 +100,16 @@
 
                     try {
                         imagenieLocalForageInstance = $localForage.instance(IMAGENIE_LOCAL_FORAGE_CONFIG.name);
-                    }catch (error) {
-                        if(ionic.Platform.isIOS()){
-                            //Force WebSQL on IOS as IndexedDB is not stable on IOS
-                            var iosConfig = angular.extend(IMAGENIE_LOCAL_FORAGE_CONFIG, {driver : 'webSQLStorage'});
-                            imagenieLocalForageInstance = $localForage.createInstance(iosConfig);
-                        }else{
+                    } catch (error) {
+                        try {
+                            if(ionic.Platform.isIOS()){
+                                //Force WebSQL on IOS as IndexedDB is not stable on IOS
+                                var iosConfig = angular.extend(IMAGENIE_LOCAL_FORAGE_CONFIG, {driver : 'webSQLStorage'});
+                                imagenieLocalForageInstance = $localForage.createInstance(iosConfig);
+                            } else{
+                                imagenieLocalForageInstance = $localForage.createInstance(IMAGENIE_LOCAL_FORAGE_CONFIG);
+                            }
+                        } catch (error) {
                             imagenieLocalForageInstance = $localForage.createInstance(IMAGENIE_LOCAL_FORAGE_CONFIG);
                         }
                     }
