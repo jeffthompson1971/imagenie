@@ -1,11 +1,11 @@
 {
-  "name": "imagenie",
+  "name": "imagenie-anywhere",
   "main": [
     "imagenie.js",
     "imagenie.min.js"
   ],
-  "version": "1.0.2",
-  "homepage": "https://github.com/saniyusuf/imagenie",
+  "version": "1.0.0",
+  "homepage": "https://github.com/jeffthompson1971/imagenie-anywhere",
   "authors": [
     "Sani Yusuf <saniyusuf@gmail.com>"
   ],
