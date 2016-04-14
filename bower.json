@@ -1,7 +1,6 @@
 {
   "name": "imagenie-anywhere",
   "main": [
-    "imagenie.js",
     "imagenie.min.js"
   ],
   "version": "1.0.0",
