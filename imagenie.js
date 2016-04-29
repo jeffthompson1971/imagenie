@@ -13,10 +13,11 @@
 
     angular.module('imagenie', ['LocalForageModule'])
 
-        .constant('IMAGENIE_LOCAL_FORAGE_CONFIG', {
+          .constant('IMAGENIE_LOCAL_FORAGE_CONFIG', {
             name        : 'imagenie_db',
             storeName   : 'image',
-            description : 'The database to hold base 64 versions of all your images so they are available offline'
+            description : 'The database to hold base 64 versions of all your images so they are available offline',
+            driver: 'localStorageWrapper'
         })
 
         .factory('ImagenieUtil', ['$q', ImagenieUtil])
@@ -98,6 +99,7 @@
                     var imageSrc = ImagenieUtil.getImageSrc(attrs);
                     var imagenieLocalForageInstance = {};
 
+                  
                     try {
                         imagenieLocalForageInstance = $localForage.instance(IMAGENIE_LOCAL_FORAGE_CONFIG.name);
                     } catch (error) {
